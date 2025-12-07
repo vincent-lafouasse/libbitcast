@@ -622,7 +622,7 @@ TEST(bitcastF32, Infinity_LE)
     // 0x7f800000
     constexpr Byte b[4] = {0x00, 0x00, 0x80, 0x7f};
     const float result = bitcastF32_LE(b);
-    EXPECT_TRUE(isinf(result) && result > 0);
+    EXPECT_TRUE(std::isinf(result) && result > 0);
 }
 
 TEST(bitcastF32, NegativeInfinity_LE)
@@ -630,14 +630,14 @@ TEST(bitcastF32, NegativeInfinity_LE)
     // 0xff800000
     constexpr Byte b[4] = {0x00, 0x00, 0x80, 0xff};
     const float result = bitcastF32_LE(b);
-    EXPECT_TRUE(isinf(result) && result < 0);
+    EXPECT_TRUE(std::isinf(result) && result < 0);
 }
 
 TEST(bitcastF32, NaN_LE)
 {
     // 0x7fc00000 (Quiet NaN)
     constexpr Byte b[4] = {0x00, 0x00, 0xc0, 0x7f};
-    EXPECT_TRUE(isnan(bitcastF32_LE(b)));
+    EXPECT_TRUE(std::isnan(bitcastF32_LE(b)));
 }
 
 // --- bitcastF32_BE Tests (Big Endian) ---
@@ -718,7 +718,7 @@ TEST(bitcastF64, PositiveInfinity_LE)
     // LE: 00 00 00 00 00 00 F0 7F
     constexpr Byte b[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0x7f};
     const double result = bitcastF64_LE(b);
-    EXPECT_TRUE(isinf(result) && result > 0);
+    EXPECT_TRUE(std::isinf(result) && result > 0);
 }
 
 TEST(bitcastF64, NegativeInfinity_LE)
@@ -727,7 +727,7 @@ TEST(bitcastF64, NegativeInfinity_LE)
     // LE: 00 00 00 00 00 00 F0 FF
     constexpr Byte b[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0xff};
     const double result = bitcastF64_LE(b);
-    EXPECT_TRUE(isinf(result) && result < 0);
+    EXPECT_TRUE(std::isinf(result) && result < 0);
 }
 
 TEST(bitcastF64, QuietNaN_LE)
@@ -735,7 +735,7 @@ TEST(bitcastF64, QuietNaN_LE)
     // 0x7ff8000000000000 (Exponent all ones, MSB of mantissa set)
     // LE: 00 00 00 00 00 00 F8 7F
     constexpr Byte b[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf8, 0x7f};
-    EXPECT_TRUE(isnan(bitcastF64_LE(b)));
+    EXPECT_TRUE(std::isnan(bitcastF64_LE(b)));
 }
 
 // --- bitcastF64_BE Tests (Big Endian) ---
@@ -777,5 +777,5 @@ TEST(bitcastF64, QuietNaN_BE)
     // 0x7ff8000000000000
     // BE: 7F F8 00 00 00 00 00 00
     constexpr Byte b[8] = {0x7f, 0xf8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-    EXPECT_TRUE(isnan(bitcastF64_BE(b)));
+    EXPECT_TRUE(std::isnan(bitcastF64_BE(b)));
 }
