@@ -3,9 +3,7 @@
 
 #include "gtest/gtest.h"
 
-extern "C" {
 #include "bitcast.h"
-}
 
 using u16 = uint16_t;
 using i16 = int16_t;
