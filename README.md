@@ -2,7 +2,7 @@
 
 ## support for
 
-- 16, 24, 32, and 64 bit signed and unsigned integers
+- 16, 24, 32, and 64 bit signed and unsigned integers, 24 bit integers are stored in their 32 bit counterpart
 - 32, and 64 bit floats
 
 ## usage
