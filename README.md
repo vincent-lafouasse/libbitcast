@@ -8,8 +8,8 @@
 ## usage
 
 ```c
-#include "bitcast.h"
 #include <stdio.h>
+#include "bitcast.h"
 
 void main() {
     // little endian 0xcafe
