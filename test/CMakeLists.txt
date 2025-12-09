@@ -12,3 +12,7 @@ PRIVATE
 	gtest
 	bitcast
 )
+
+add_test(NAME bitcastTest
+    COMMAND bitcastTest
+)
