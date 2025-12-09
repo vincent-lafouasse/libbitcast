@@ -23,7 +23,7 @@ target_sources(
          FILES
          include/bitcast.h)
 
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -g3
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic
                                                -fdiagnostics-color=always)
 
 if(BITCAST_BUILD_TESTS)
