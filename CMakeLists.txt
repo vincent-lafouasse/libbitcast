@@ -9,6 +9,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
+option(BITCAST_BUILD_TESTS "Build and run tests using CTest" ON)
+
 add_library(${PROJECT_NAME})
 target_sources(
   ${PROJECT_NAME}
@@ -22,10 +24,12 @@ target_sources(
          FILES
          include/bitcast.h)
 
-include(FetchContent)
-include(cmake/fetch_gtest.cmake)
+if(BITCAST_BUILD_TESTS)
+  include(FetchContent)
+  include(cmake/fetch_gtest.cmake)
 
-include(CTest)
-enable_testing()
+  include(CTest)
+  enable_testing()
 
-add_subdirectory(test)
+  add_subdirectory(test)
+endif()
