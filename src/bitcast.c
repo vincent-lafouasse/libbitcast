@@ -102,6 +102,8 @@ int64_t bitcastI64_BE(const Byte bytes[8])
     return (int64_t)bitcastU64_BE(bytes);
 }
 
+// this is the correct way to type-pun without violating the Strict Aliasing
+// Rule
 typedef union {
     float f;
     uint32_t bits;
