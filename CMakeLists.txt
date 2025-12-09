@@ -4,9 +4,8 @@ project(bitcast VERSION 0.1.0)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_FLAGS "-Wall -Wextra -pedantic -fdiagnostics-color=always -g3")
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 option(BITCAST_BUILD_TESTS "Build and run tests using CTest" ON)
@@ -23,6 +22,9 @@ target_sources(
          include
          FILES
          include/bitcast.h)
+
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -g3
+                                               -fdiagnostics-color=always)
 
 if(BITCAST_BUILD_TESTS)
   set(CMAKE_CXX_STANDARD 20)
