@@ -9,18 +9,17 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 add_library(${PROJECT_NAME})
-target_sources(${PROJECT_NAME}
-PRIVATE
-	src/bitcast.c
-
-PUBLIC
-	FILE_SET myHeaders
-	TYPE HEADERS
-	BASE_DIRS
-		include
-	FILES
-		include/bitcast.h
-)
+target_sources(
+  ${PROJECT_NAME}
+  PRIVATE src/bitcast.c
+  PUBLIC FILE_SET
+         myHeaders
+         TYPE
+         HEADERS
+         BASE_DIRS
+         include
+         FILES
+         include/bitcast.h)
 
 include(FetchContent)
 include(cmake/fetch_gtest.cmake)
